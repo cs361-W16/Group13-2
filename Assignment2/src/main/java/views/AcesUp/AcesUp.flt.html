@@ -2,8 +2,66 @@
 
 <link href="/assets/css/AcesUp.css" rel="stylesheet">
 <script type="text/javascript" src="/assets/webjars/jquery/2.1.3/jquery.js"></script>
+<script type="text/javascript">
+ var helper = 1;
+ document.onkeydown = function(event){
+     var key_press = String.fromCharCode(event.keyCode);
+     var key_code = event.keyCode;
+     document.getElementById('kp').innerHTML = key_press;
+     document.getElementById('kc').innerHTML = key_code;
+     var status = document.getElementById('status');
+     status.innerHTML = "DOWN event fired : "+key_press;
+     if(key_press == "1" ){
+         document.getElementById('removeCard').value = 1;
+     } else if(key_press == "2") {
+         document.getElementById('removeCard').value = 2;
+     } else if(key_press == "3") {
+         document.getElementById('removeCard').value = 3;
+     } else if(key_press == "4") {
+         document.getElementById('removeCard').value = 4;
+     }
+     if(helper == 1){
+         if(key_press == "1" ){
+             document.getElementById('moveFrom').value = 1;
+         } else if(key_press == "2") {
+             document.getElementById('moveFrom').value = 2;
+         } else if(key_press == "3") {
+             document.getElementById('moveFrom').value = 3;
+         } else if(key_press == "4") {
+             document.getElementById('moveFrom').value = 4;
+         }
+         helper = 2;
+         return;
+     }
+     if(helper == 2){
+         if(key_press == "1" ){
+             document.getElementById('moveTo').value = 1;
+         } else if(key_press == "2") {
+             document.getElementById('moveTo').value = 2;
+         } else if(key_press == "3") {
+             document.getElementById('moveTo').value = 3;
+         } else if(key_press == "4") {
+             document.getElementById('moveTo').value = 4;
+         }
+         helper = 1;
+         return;
+     }
+
+ }
+ document.onkeyup = function(event){
+     var key_press = String.fromCharCode(event.keyCode);
+     var status = document.getElementById('status');
+     status.innerHTML = "UP event fired : "+key_press;
+ }
+
+ </script>
 
 <body>
+Key Pressed: <span id="kp"></span>
+<br />
+Key Code : <span id="kc"></span>
+<p id="status">Keyboard Event Status</p>
+
 
 <table>
     <tr class="title">
@@ -93,12 +151,20 @@
 
 <BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
 
+<p id="score"></p>
+
+
 <script>
+
+document.getElementById("score").innerHTML = "Score: "
 
 var game;
 
 function display(game) {
 console.log(game);
+
+if(game.Score == 48)
+window.alert("You win!")
 
 $( '.columnOfCards .cardLocation' ).html("");
 
@@ -149,7 +215,8 @@ url: "/removeCard/"+colNumber,
 data: JSON.stringify(game),
 success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
 game = data;
-display(data);},
+display(data);
+document.getElementById("score").innerHTML = "Score: " + game.Score;},
 contentType:"application/json; charset=utf-8",
 dataType:"json",
 });
@@ -170,6 +237,22 @@ $("#Remove4").click(function(){
     removeCard(3);
 });
 
+ $("#c0").click(function(){
+     removeCard(0);
+ });
+
+ $("#c1").click(function(){
+     removeCard(1);
+ });
+
+ $("#c2").click(function(){
+     removeCard(2);
+ });
+
+ $("#c3").click(function(){
+     removeCard(3);
+ });
+
 
 $("#moveButton").click(function(){
 var colFrom = $("#from_col").val();
@@ -185,6 +268,7 @@ $.ajax({
   dataType:"json",
 });
 });
+
 
 
 </script>
