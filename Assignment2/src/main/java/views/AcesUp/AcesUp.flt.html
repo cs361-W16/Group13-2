@@ -152,13 +152,19 @@ Key Code : <span id="kc"></span>
 </table>
 
 <BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
+<p id="score"></p>
 
 <script>
+
+document.getElementById("score").innerHTML = "Score: "
 
 var game;
 
 function display(game) {
 console.log(game);
+
+if(game.Score == 48)
+window.alert("You win!")
 
 $( '.columnOfCards .cardLocation' ).html("");
 
@@ -249,7 +255,8 @@ url: "/removeCard/"+colNumber,
 data: JSON.stringify(game),
 success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
 game = data;
-display(data);},
+display(data);
+document.getElementById("score").innerHTML = "Score: " + game.Score;},
 contentType:"application/json; charset=utf-8",
 dataType:"json",
 });
