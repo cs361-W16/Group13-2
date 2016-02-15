@@ -24,9 +24,7 @@ public class Card implements Serializable {
         return suit;
     }
 
-    public int getValue() {
-        return value;
-    }
+    public int getValue() { return value; }
 
     public String toString() {
         return this.value + this.suit.toString();
