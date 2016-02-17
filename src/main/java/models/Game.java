@@ -24,12 +24,6 @@ public class Game {
         Score = 0;
     }
 
-
-
-
-
-
-
     public void buildDeck() {
         for(int i = 2; i < 15; i++){
             deck.add(new Card(i,Suit.Clubs));
@@ -39,12 +33,32 @@ public class Game {
         }
     }
 
+    /*
+
+    //Will need to create child classes of spanish and english that implement the following decks respectively
+    //If we are parsing out what to name the cards (as I suspect we are) that will have to be changed
+    //or we will have to do major refactoring to the code
+
+    public void buildSpanishDeck() {
+        for(int i = 1; i < 12; i++){
+            deck.add(new Card(i,Suit.Clubs));
+            deck.add(new Card(i,Suit.Hearts));
+            deck.add(new Card(i,Suit.Diamonds));
+            deck.add(new Card(i,Suit.Spades));
+        }
+    }
+
+    public void buildEnglishDeck() {
+        for(int i = 2; i < 15; i++){
+            deck.add(new Card(i,Suit.Clubs));
+            deck.add(new Card(i,Suit.Hearts));
+            deck.add(new Card(i,Suit.Diamonds));
+            deck.add(new Card(i,Suit.Spades));
+        }
+    }
 
 
-
-
-
-
+     */
 
     public void shuffle() {
         long seed = System.nanoTime();
