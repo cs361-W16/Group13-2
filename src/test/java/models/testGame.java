@@ -60,6 +60,9 @@ public class testGame {
         g.customDeal(0,3,6,9);
         g.remove(2);
         assertEquals(0,g.cols.get(2).size());
+        //make sure that we did not remove from an empty column
+        g.remove(2);
+        assertEquals(0,g.cols.get(2).size());
     }
 
 
