@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Game {
 
-    public Deck deck = new Deck();
+    public Deck deck;
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>();
 
@@ -20,6 +20,8 @@ public class Game {
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         Score = 0;
+        //will need to pass something later on to determine the deck
+        deck = new EnglishDeck();
     }
 
     public void buildDeck() {
