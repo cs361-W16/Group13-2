@@ -63,6 +63,10 @@ Key Code : <span id="kc"></span>
 <p id="status">Keyboard Event Status</p>
 
 <button id="dealButton">Deal</button>
+<select id = "selectedGame" onchange = "display()">
+    <option value = "engGame" selected>English Game</option>
+    <option value = "spaGame">Spanish Game</option>
+</select>
 
 <table>
     <tr class="title">
@@ -161,68 +165,138 @@ document.getElementById("score").innerHTML = "Score: "
 var game;
 
 function display(game) {
+
+var userChoice = document.getElementById("selectedGame").value;
+
 console.log(game);
 
-if(game.Score == 48)
-window.alert("You win!")
+if(userChoice == "engGame")
+{
+    if(game.Score == 48)
+    window.alert("You win!")
 
-$( '.columnOfCards .cardLocation' ).html("");
+    $( '.columnOfCards .cardLocation' ).html("");
 
-    $.each(game.cols[0], function( key, val ) {
-    if (val.value < 11) {
-        $( '#c0 .l'+key ).html(val.value + " of " + val.suit);
-    } else if (val.value == 11) {
-        $( '#c0 .l'+key ).html("Jack of " + val.suit);
-    } else if (val.value == 12) {
-        $( '#c0 .l'+key ).html("Queen of " + val.suit);
-    } else if (val.value == 13) {
-        $( '#c0 .l'+key ).html("King of " + val.suit);
-    } else if (val.value == 14) {
-        $( '#c0 .l'+key ).html("Ace of " + val.suit);
-    }
-    });
+        $.each(game.cols[0], function( key, val ) {
+        if (val.value < 11) {
+            $( '#c0 .l'+key ).html(val.value + " of " + val.suit);
+        } else if (val.value == 11) {
+            $( '#c0 .l'+key ).html("Jack of " + val.suit);
+        } else if (val.value == 12) {
+            $( '#c0 .l'+key ).html("Queen of " + val.suit);
+        } else if (val.value == 13) {
+            $( '#c0 .l'+key ).html("King of " + val.suit);
+        } else if (val.value == 14) {
+            $( '#c0 .l'+key ).html("Ace of " + val.suit);
+        }
+        });
 
- $.each(game.cols[1], function( key, val ) {
-    if (val.value < 11) {
-        $( '#c1 .l'+key ).html(val.value + " of " + val.suit);
-    } else if (val.value == 11) {
-        $( '#c1 .l'+key ).html("Jack of " + val.suit);
-    } else if (val.value == 12) {
-        $( '#c1 .l'+key ).html("Queen of " + val.suit);
-    } else if (val.value == 13) {
-        $( '#c1 .l'+key ).html("King of " + val.suit);
-    } else if (val.value == 14) {
-        $( '#c1 .l'+key ).html("Ace of " + val.suit);
-    }
-    });
+     $.each(game.cols[1], function( key, val ) {
+        if (val.value < 11) {
+            $( '#c1 .l'+key ).html(val.value + " of " + val.suit);
+        } else if (val.value == 11) {
+            $( '#c1 .l'+key ).html("Jack of " + val.suit);
+        } else if (val.value == 12) {
+            $( '#c1 .l'+key ).html("Queen of " + val.suit);
+        } else if (val.value == 13) {
+            $( '#c1 .l'+key ).html("King of " + val.suit);
+        } else if (val.value == 14) {
+            $( '#c1 .l'+key ).html("Ace of " + val.suit);
+        }
+        });
 
- $.each(game.cols[2], function( key, val ) {
-    if (val.value < 11) {
-        $( '#c2 .l'+key ).html(val.value + " of " + val.suit);
-    } else if (val.value == 11) {
-        $( '#c2 .l'+key ).html("Jack of " + val.suit);
-    } else if (val.value == 12) {
-        $( '#c2 .l'+key ).html("Queen of " + val.suit);
-    } else if (val.value == 13) {
-        $( '#c2 .l'+key ).html("King of " + val.suit);
-    } else if (val.value == 14) {
-        $( '#c2 .l'+key ).html("Ace of " + val.suit);
-    }
-    });
+     $.each(game.cols[2], function( key, val ) {
+        if (val.value < 11) {
+            $( '#c2 .l'+key ).html(val.value + " of " + val.suit);
+        } else if (val.value == 11) {
+            $( '#c2 .l'+key ).html("Jack of " + val.suit);
+        } else if (val.value == 12) {
+            $( '#c2 .l'+key ).html("Queen of " + val.suit);
+        } else if (val.value == 13) {
+            $( '#c2 .l'+key ).html("King of " + val.suit);
+        } else if (val.value == 14) {
+            $( '#c2 .l'+key ).html("Ace of " + val.suit);
+        }
+        });
 
- $.each(game.cols[3], function( key, val ) {
-    if (val.value < 11) {
-        $( '#c3 .l'+key ).html(val.value + " of " + val.suit);
-    } else if (val.value == 11) {
-        $( '#c3 .l'+key ).html("Jack of " + val.suit);
-    } else if (val.value == 12) {
-        $( '#c3 .l'+key ).html("Queen of " + val.suit);
-    } else if (val.value == 13) {
-        $( '#c3 .l'+key ).html("King of " + val.suit);
-    } else if (val.value == 14) {
-        $( '#c3 .l'+key ).html("Ace of " + val.suit);
-    }
-    });
+     $.each(game.cols[3], function( key, val ) {
+        if (val.value < 11) {
+            $( '#c3 .l'+key ).html(val.value + " of " + val.suit);
+        } else if (val.value == 11) {
+            $( '#c3 .l'+key ).html("Jack of " + val.suit);
+        } else if (val.value == 12) {
+            $( '#c3 .l'+key ).html("Queen of " + val.suit);
+        } else if (val.value == 13) {
+            $( '#c3 .l'+key ).html("King of " + val.suit);
+        } else if (val.value == 14) {
+            $( '#c3 .l'+key ).html("Ace of " + val.suit);
+        }
+        });
+ }
+
+ if(userChoice == "spaGame")
+{
+    if(game.Score == 36)
+    window.alert("You win!")
+
+    $( '.columnOfCards .cardLocation' ).html("");
+
+        $.each(game.cols[0], function( key, val ) {
+        if (1 < val.value && val.value < 8) {
+            $( '#c0 .l'+key ).html(val.value + " of " + val.suit);
+        } else if (val.value == 10) {
+            $( '#c0 .l'+key ).html("Jack of " + val.suit);
+        } else if (val.value == 11) {
+            $( '#c0 .l'+key ).html("Knight of " + val.suit);
+        } else if (val.value == 12) {
+            $( '#c0 .l'+key ).html("King of " + val.suit);
+        }else if (val.value == 1) {
+            $( '#c0 .l'+key ).html("Ace of " + val.suit);
+        }
+        });
+
+     $.each(game.cols[1], function( key, val ) {
+        if (1 < val.value && val.value < 8) {
+            $( '#c1 .l'+key ).html(val.value + " of " + val.suit);
+        } else if (val.value == 10) {
+            $( '#c1 .l'+key ).html("Jack of " + val.suit);
+        } else if (val.value == 11) {
+            $( '#c1 .l'+key ).html("Knight of " + val.suit);
+        } else if (val.value == 12) {
+            $( '#c1 .l'+key ).html("King of " + val.suit);
+        }else if (val.value == 1) {
+            $( '#c1 .l'+key ).html("Ace of " + val.suit);
+        }
+        });
+
+     $.each(game.cols[2], function( key, val ) {
+        if (1 < val.value && val.value < 8) {
+            $( '#c2 .l'+key ).html(val.value + " of " + val.suit);
+        } else if (val.value == 10) {
+            $( '#c2 .l'+key ).html("Jack of " + val.suit);
+        } else if (val.value == 11) {
+            $( '#c2 .l'+key ).html("Knight of " + val.suit);
+        } else if (val.value == 12) {
+            $( '#c2 .l'+key ).html("King of " + val.suit);
+        }else if (val.value == 1) {
+            $( '#c2 .l'+key ).html("Ace of " + val.suit);
+        }
+        });
+
+     $.each(game.cols[3], function( key, val ) {
+        if (1 < val.value && val.value < 8) {
+            $( '#c3 .l'+key ).html(val.value + " of " + val.suit);
+        } else if (val.value == 10) {
+            $( '#c3 .l'+key ).html("Jack of " + val.suit);
+        } else if (val.value == 11) {
+            $( '#c3 .l'+key ).html("Knight of " + val.suit);
+        } else if (val.value == 12) {
+            $( '#c3 .l'+key ).html("King of " + val.suit);
+        }else if (val.value == 1) {
+            $( '#c3 .l'+key ).html("Ace of " + val.suit);
+        }
+        });
+ }
 
 
 
