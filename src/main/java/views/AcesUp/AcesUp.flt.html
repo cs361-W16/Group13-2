@@ -68,6 +68,8 @@ Key Code : <span id="kc"></span>
     <option value = "spaGame">Spanish Game</option>
 </select>
 
+<button id="newGame"> Reset </button>
+
 <table>
     <tr class="title">
         <td>Column0</td>
@@ -312,6 +314,20 @@ $("#dealButton").click(function(){
 $.ajax({
   type: "POST",
   url: "/dealGame",
+  data: JSON.stringify(game),
+  success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+  contentType:"application/json; charset=utf-8",
+  dataType:"json",
+});
+});
+
+
+$("#newGame").click(function(){
+$.ajax({
+  type: "POST",
+  url: "/newGame",
   data: JSON.stringify(game),
   success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
         game = data;
