@@ -242,7 +242,7 @@ if(userChoice == "engGame")
     $( '.columnOfCards .cardLocation' ).html("");
 
         $.each(game.cols[0], function( key, val ) {
-        if (1 < val.value < 8) {
+        if (1 < val.value && val.value < 8) {
             $( '#c0 .l'+key ).html(val.value + " of " + val.suit);
         } else if (val.value == 10) {
             $( '#c0 .l'+key ).html("Jack of " + val.suit);
@@ -256,7 +256,7 @@ if(userChoice == "engGame")
         });
 
      $.each(game.cols[1], function( key, val ) {
-        if (1 < val.value < 8) {
+        if (1 < val.value && val.value < 8) {
             $( '#c1 .l'+key ).html(val.value + " of " + val.suit);
         } else if (val.value == 10) {
             $( '#c1 .l'+key ).html("Jack of " + val.suit);
@@ -270,7 +270,7 @@ if(userChoice == "engGame")
         });
 
      $.each(game.cols[2], function( key, val ) {
-        if (1 < val.value < 8) {
+        if (1 < val.value && val.value < 8) {
             $( '#c2 .l'+key ).html(val.value + " of " + val.suit);
         } else if (val.value == 10) {
             $( '#c2 .l'+key ).html("Jack of " + val.suit);
@@ -284,7 +284,7 @@ if(userChoice == "engGame")
         });
 
      $.each(game.cols[3], function( key, val ) {
-        if (1 < val.value < 8) {
+        if (1 < val.value && val.value < 8) {
             $( '#c3 .l'+key ).html(val.value + " of " + val.suit);
         } else if (val.value == 10) {
             $( '#c3 .l'+key ).html("Jack of " + val.suit);
