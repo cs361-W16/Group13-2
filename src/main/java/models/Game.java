@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Game {
 
-    public Deck deck = new Deck();
+    public Deck deck;
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>();
 
@@ -24,6 +24,8 @@ public class Game {
 
     public void buildDeck() {
         //later on we will override build for the different decks
+        //will need to pass something later on to determine the deck
+        deck = new EnglishDeck();
         deck.build();
     }
 

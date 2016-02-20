@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Created by Trevor Hammock on 2/18/16.
  */
-public class Deck{
+public abstract class Deck{
 
     public java.util.List<Card> deck = new ArrayList<>();
 
@@ -46,12 +46,5 @@ public class Deck{
     }
 
     //this currently replaces buildDeck() in Game.java
-    public void build() {
-        for(int i = 2; i < 15; i++){
-            deck.add(new Card(i,Suit.Clubs));
-            deck.add(new Card(i,Suit.Hearts));
-            deck.add(new Card(i,Suit.Diamonds));
-            deck.add(new Card(i,Suit.Spades));
-        }
-    }
+    public abstract void build();
 }
